@@ -1,28 +1,28 @@
-[org 0x7c00] ; offset the starting address when direct addressing
+[org 0x7c00]	; offset the starting address when direct addressing
 
-mov ah, 0x0e ; tty mode
+mov ah, 0x0e	; tty BIOS routine
+
+mov bp, 0x8000	; set stack base pointer a little above where BIOS
+mov sp, bp		; loads this bootloader, so it won't overwrite it
+
 mov bx, hello_world
 mov al, [bx]
-print1:
-	int 0x10
-	add bx, 1
-	mov al, [bx]
-	test al, al
-	jnz print1
-mov al, [return]
-int 0x10
+call print
 mov bx, boot_msg
 mov al, [bx]
-print2:
+call print
+
+jmp $			; jump to current address = infinite loop
+
+print:
 	int 0x10
 	add bx, 1
 	mov al, [bx]
 	test al, al
-	jnz print2
-mov al, [return]
-int 0x10
-
-jmp $ ; jump to current address = infinite loop
+	jnz print
+	mov al, [return]
+	int 0x10
+	ret
 
 hello_world:
 	db `hello world\n\0`
