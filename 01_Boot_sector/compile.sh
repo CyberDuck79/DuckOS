@@ -1,0 +1,1 @@
+nasm -fbin boot_sector_hello.s -o boot_sector_hello.bin
