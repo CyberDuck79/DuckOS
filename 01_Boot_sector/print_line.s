@@ -1,9 +1,14 @@
+; Print string loaded at BX address
 print_line:
-int 0x10
-add bx, 1
+mov ah, 0x0e			; tty BIOS routine
+print_loop:
 mov al, [bx]
 test al, al
-jnz print_line
+jz print_end
+int 0x10
+add bx, 1
+jmp print_loop
+print_end:
 mov al, `\n`
 int 0x10
 mov al, `\r`

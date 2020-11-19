@@ -1,1 +1,1 @@
-qemu-system-i386 -drive format=raw,file=boot_sector_hello.bin
+qemu-system-i386 -drive format=raw,file=boot_sector_hello.bin,index=0,if=floppy
