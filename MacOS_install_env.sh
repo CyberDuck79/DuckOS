@@ -20,7 +20,7 @@ source ~/.zshrc
 printf "${Green}Binutils installation${Default}"
 mkdir /tmp/src
 cd /tmp/src
-if [ ! -d ./gcc-10.2.0 ]; then
+if [ ! -d ./binutils-2.35 ]; then
 	printf "${Yellow}Binutils download...${Default}"
 	curl -O http://ftp.gnu.org/gnu/binutils/binutils-2.35.tar.xz \
 	&& printf "${Green}Binutils download OK${Default}" \
