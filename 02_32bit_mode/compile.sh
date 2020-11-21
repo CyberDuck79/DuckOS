@@ -1,0 +1,1 @@
+nasm -fbin boot_loader.s -o boot_loader.bin
