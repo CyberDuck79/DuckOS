@@ -1,8 +1,12 @@
 #include "../drivers/screen.h"
 
-void main ()
+void main()
 {
 	clear_screen();
-	kprint("DuckOS\n");
-    kprint("Quack Quack Human\n");
+	kprint("     __\n");
+	kprint(" ___( o)>\n");
+	kprint(" \\ <_. )\n");
+	kprint("  `----'\n");
+	kprint_attr("DuckOS\n", GREEN_ON_BLACK);
+    kprint_attr("Quack Quack Human\n", YELLOW_ON_BLACK);
 }
